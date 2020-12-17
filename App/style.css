@@ -13,15 +13,14 @@ h1 {
     margin: 10px auto;
 }
 
-.card-container {
+#card-container {
     display: grid;
     grid-template-columns: 100px 100px 100px 100px;
     grid-template-rows: 200px 200px 200px 200px;
+    grid-gap: 20px;
 }
-.character-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card {
+    display: inline-block;
     color: white;
     padding: 50px;
     font-size: 14px;
