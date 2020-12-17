@@ -2,7 +2,7 @@ console.log("app.js is connected!");
 
 const cardContainer = document.querySelector("#card-container");
 
-let characterName = "mr. mee";
+let characterName = "rick";
 const characterURL = `https://rickandmortyapi.com/api/character/?name=${characterName}`;
 
 
@@ -17,8 +17,6 @@ fetch(characterURL, {
 .then(data => {
     console.log(data.info);
     console.log(data.results);
-    // console.log(data.results[0].image)
-    // let imageURL = `${data.results[0].image}`
     
 
     for(let i=0; i < data.results.length; i++) {
@@ -27,13 +25,10 @@ fetch(characterURL, {
 
         let card = document.createElement("div");
         card.setAttribute("class", "card");
-        card.style.border = 'solid #fff 2px';
         
         let cardImage = document.createElement("img");
         cardImage.setAttribute("class", "card-image");
         cardImage.setAttribute("src", `${imageURL}`);
-        cardImage.style.height = '50px';
-        cardImage.style.width = '50px';
 
         let cardName = document.createElement("p");
         cardName.setAttribute("class", `card-name`);
