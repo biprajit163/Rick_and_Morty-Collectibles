@@ -1,0 +1,14 @@
+html, body {
+    height: 100%;
+    width: 800px;
+    margin: 0 auto;
+    background-color: #292E31;
+    color: #F0E14A;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    margin: 10px auto;
+}
