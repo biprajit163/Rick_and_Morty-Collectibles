@@ -71,6 +71,10 @@ html, body {
     color: white;
     border: solid #fff 2px;
     border-radius: 10px;
+    /* max-width: 100px;
+    max-height: 200px;
+    transition: all .15s linear;
+    transform-origin: center center; */
 }
 .card-image {
     height: 80px;
@@ -85,3 +89,12 @@ html, body {
     font-size: 5px;
     border-bottom: solid #fff 2px;
 }
+
+
+
+/* .card:hover {
+    max-width: 200px;
+    max-height: 250px;
+    transform: rotateX(var(--x-rotation, 0)) rotateY(var(--y-rotation, 0));
+    filter: brightness(var(--brightness, 1));
+} */

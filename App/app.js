@@ -1,6 +1,7 @@
 console.log("app.js is connected!");
 
 const cardContainer = document.querySelector("#card-container");
+const card = document.querySelector(".card");
 const searchBar = document.querySelector(".searchbar-text");
 const searchBtn = document.querySelector(".searchbar-button");
 
@@ -9,7 +10,7 @@ let characterName = '';
 searchBtn.addEventListener("click", showCards);
 searchBar.addEventListener("change", showCards);
 
-
+// card.addEventListener('mousemove', hoverEffect);
 
 function showCards() {
     characterName = searchBar.value;
@@ -68,4 +69,14 @@ function showCards() {
 }
 
 
+function hoverEffect(event) {
+    let y = event.offsetY - 180;
+    let xRotation = y / -360;
+    let x = event.offsetX - 180;
+    let yRotation = x / 360;
+    let brightness = (Math.abs(-360 + x + y) / 360) + 0.5;
 
+    card.style.setProperty(`--x-rotation ${xRotation} rad`);
+    card.style.setProperty(`--y-rotation ${yRotation} rad`);
+    card.style.setProperty(`--brightness ${brightness}`);
+}
