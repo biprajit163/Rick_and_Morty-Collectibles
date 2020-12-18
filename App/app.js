@@ -14,9 +14,7 @@ searchBar.addEventListener("change", showCards);
 
 function showCards() {
     characterName = searchBar.value;
-    let pages = 1;
-    const characterURL = `https://rickandmortyapi.com/api/character/?name=${characterName}`;
-    let characterPage = `https://rickandmortyapi.com/api/character/?page=${pages}&name=${characterName}`;     
+    let characterURL = `https://rickandmortyapi.com/api/character/?name=${characterName}`;     
 
     
     fetch(characterURL, {
@@ -28,11 +26,11 @@ function showCards() {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data);
-        // let myRequest = new Request(data.info.next);
-        // let data2 = myRequest.json();    
-        // console.log(data2.url);    
+        console.log(data.info);
 
+        let page = Math.ceil(Math.random() * data.info.pages);
+        let randPageURL = `https://rickandmortyapi.com/api/character/?name=${characterName}&page=${page}`; 
+    
         
         if(cardContainer.hasChildNodes()) {
             while(cardContainer.firstChild) {
@@ -41,36 +39,44 @@ function showCards() {
         }
 
 
-        for(let i=0; i < data.results.length; i++) {
+        fetch(randPageURL)
+        .then(newRes => newRes.json())
+        .then(newData => {
+            console.log(newData.results);
 
-            let imageURL = data.results[i].image;
-            
-    
-            let card = document.createElement("div");
-            card.setAttribute("class", "card");
-            
-            let cardImage = document.createElement("img");
-            cardImage.setAttribute("class", "card-image");
-            cardImage.setAttribute("src", `${imageURL}`);
-    
-            let cardName = document.createElement("p");
-            cardName.setAttribute("class", `card-name`);
-            cardName.innerText = data.results[i].name;
-    
-            /*
-            let cardInfo = document.createElement("p");
-            cardInfo.setAttribute("class", "card-info");
-            */
-    
-            card.appendChild(cardImage);
-            card.appendChild(cardName);
-            // card.appendChild(cardInfo);
-            cardContainer.appendChild(card);
-        }
 
- 
+            for(let i=0; i < newData.results.length; i++) {
+
+                let imageURL = newData.results[i].image;
+                
+        
+                let card = document.createElement("div");
+                card.setAttribute("class", "card");
+                
+                let cardImage = document.createElement("img");
+                cardImage.setAttribute("class", "card-image");
+                cardImage.setAttribute("src", `${imageURL}`);
+        
+                let cardName = document.createElement("p");
+                cardName.setAttribute("class", `card-name`);
+                cardName.innerText = newData.results[i].name;
+        
+                /*
+                let cardInfo = document.createElement("p");
+                cardInfo.setAttribute("class", "card-info");
+                */
+        
+                card.appendChild(cardImage);
+                card.appendChild(cardName);
+                // card.appendChild(cardInfo);
+                cardContainer.appendChild(card);
+            }
+        })
+        .catch(err => console.log("Something went wrong...", err));
+
     })
     .catch(err => console.log("Something went wrong...", err));
+
 }
 
 
