@@ -6,9 +6,15 @@ const searchBtn = document.querySelector(".searchbar-button");
 
 let characterName = '';
 
-searchBtn.addEventListener("click", () => {
+searchBtn.addEventListener("click", showCards);
+searchBar.addEventListener("change", showCards);
+
+
+
+function showCards() {
     characterName = searchBar.value;
     const characterURL = `https://rickandmortyapi.com/api/character/?name=${characterName}`;
+    
     fetch(characterURL, {
         method: 'GET',
         mode: 'cors',
@@ -21,8 +27,17 @@ searchBtn.addEventListener("click", () => {
         console.log(data.info);
         console.log(data.results);
         
-    
+
+        
+        if(cardContainer.hasChildNodes()) {
+            while(cardContainer.firstChild) {
+                cardContainer.removeChild(cardContainer.lastChild)
+            } 
+        }
+
+
         for(let i=0; i < data.results.length; i++) {
+
             let imageURL = data.results[i].image;
             
     
@@ -47,12 +62,10 @@ searchBtn.addEventListener("click", () => {
             // card.appendChild(cardInfo);
             cardContainer.appendChild(card);
         }
+ 
     })
     .catch(err => console.log("Something went wrong...", err));
-})
+}
 
 
-/* 
-- on every click I get new cards but I don't replace the old cards!
-*/
 
