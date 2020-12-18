@@ -14,7 +14,10 @@ searchBar.addEventListener("change", showCards);
 
 function showCards() {
     characterName = searchBar.value;
+    let pages = 1;
     const characterURL = `https://rickandmortyapi.com/api/character/?name=${characterName}`;
+    let characterPage = `https://rickandmortyapi.com/api/character/?page=${pages}&name=${characterName}`;     
+
     
     fetch(characterURL, {
         method: 'GET',
@@ -25,8 +28,12 @@ function showCards() {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data.info);
-        console.log(data.results);
+        console.log(data);
+        console.log(data.info["count"]);
+        console.log(data["results"]);
+        for(let i=0; i < data.results.length; i++) {
+            console.log(data.results[i].name);
+        }
         
 
         
@@ -63,6 +70,7 @@ function showCards() {
             // card.appendChild(cardInfo);
             cardContainer.appendChild(card);
         }
+
  
     })
     .catch(err => console.log("Something went wrong...", err));
