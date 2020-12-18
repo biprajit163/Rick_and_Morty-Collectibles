@@ -63,6 +63,7 @@ html, body {
     grid-template-columns: 100px 100px 100px 100px;
     grid-template-rows: 200px 200px 200px 200px;
     grid-gap: 4em 8em;
+    padding-bottom: 4em;
 }
 .card {
     display: inline-block;
@@ -71,6 +72,7 @@ html, body {
     color: white;
     border: solid #fff 2px;
     border-radius: 10px;
+    height: 200px;
     /* max-width: 100px;
     max-height: 200px;
     transition: all .15s linear;

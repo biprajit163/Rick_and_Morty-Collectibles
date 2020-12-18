@@ -29,12 +29,9 @@ function showCards() {
     .then(res => res.json())
     .then(data => {
         console.log(data);
-        console.log(data.info["count"]);
-        console.log(data["results"]);
-        for(let i=0; i < data.results.length; i++) {
-            console.log(data.results[i].name);
-        }
-        
+        // let myRequest = new Request(data.info.next);
+        // let data2 = myRequest.json();    
+        // console.log(data2.url);    
 
         
         if(cardContainer.hasChildNodes()) {
