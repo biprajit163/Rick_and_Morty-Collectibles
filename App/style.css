@@ -97,3 +97,41 @@ html, body {
 
 
 
+
+
+
+
+.cardboard {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 50px auto;
+    color: #fff;
+    border: solid #fff 2px;
+    border-radius: 10px;
+    height: 200px;
+    width: 100px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+.cardboard:hover {
+    box-shadow: 5px 5px 15px rgb(173, 156, 156);
+    transform: scale(1.7);
+}
+.cardboard.is-flipped {
+    transform: rotateY(180deg);
+}
+.cardboard-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+.cardboard-face-front {
+    color: rgba(26, 224, 231, 0.993);
+}
+.cardboard-face-back {
+    color: rgb(224, 208, 62);
+    transform: rotateY(180deg);
+}

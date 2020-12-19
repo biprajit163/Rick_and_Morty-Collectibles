@@ -5,6 +5,24 @@ const card = document.querySelector(".card");
 const searchBar = document.querySelector(".searchbar-text");
 const searchBtn = document.querySelector(".searchbar-button");
 
+/* -------------------------------------------------------------
+    Flip Effect JS
+-------------------------------------------------------------- */
+const cardboard = document.querySelector(".cardboard")
+
+cardboard.addEventListener("click", (event) => {
+    cardboard.classList.toggle('is-flipped');
+});
+
+
+
+/* -------------------------------------------------------------
+    Flip Effect JS
+-------------------------------------------------------------- */
+
+
+
+
 let characterName = '';
 
 searchBtn.addEventListener("click", showCards);
