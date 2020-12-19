@@ -71,6 +71,13 @@ function showCards() {
                 let card = document.createElement("div");
                 card.setAttribute("class", "card");
                 
+                let cardFaceFront = document.createElement("div");
+                cardFaceFront.setAttribute("class", "card-face card-face-front");
+
+                let cardFaceBack = document.createElement("div");
+                cardFaceBack.setAttribute("class", "card-face card-face-back");
+
+
                 let cardImage = document.createElement("img");
                 cardImage.setAttribute("class", "card-image");
                 cardImage.setAttribute("src", `${imageURL}`);
@@ -80,10 +87,19 @@ function showCards() {
                 cardName.innerText = newData.results[i].name;
         
                 
-        
-                card.appendChild(cardImage);
-                card.appendChild(cardName);
+                cardFaceFront.appendChild(cardImage);
+                cardFaceFront.appendChild(cardName);
+                card.appendChild(cardFaceFront);
+                // card.appendChild(cardImage);
+                // card.appendChild(cardName);
                 cardContainer.appendChild(card);
+
+
+                card.addEventListener("click", (event) => {
+                    event.stopPropagation()
+
+                    card.classList.toggle("is-flipped");
+                });
             }
         })
         .catch(err => console.log("Something went wrong...", err));
