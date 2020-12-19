@@ -8,14 +8,11 @@ const searchBtn = document.querySelector(".searchbar-button");
 /* -------------------------------------------------------------
     Flip Effect JS
 -------------------------------------------------------------- */
-const cardboard = document.querySelector(".cardboard")
+// const cardboard = document.querySelector(".cardboard")
 
-cardboard.addEventListener("click", (event) => {
-    cardboard.classList.toggle('is-flipped');
-});
-
-
-
+// cardboard.addEventListener("click", (event) => {
+//     cardboard.classList.toggle('is-flipped');
+// });
 /* -------------------------------------------------------------
     Flip Effect JS
 -------------------------------------------------------------- */
@@ -67,15 +64,20 @@ function showCards() {
 
                 let imageURL = newData.results[i].image;
                 
-        
                 let card = document.createElement("div");
                 card.setAttribute("class", "card");
+
                 
+
+
                 let cardFaceFront = document.createElement("div");
                 cardFaceFront.setAttribute("class", "card-face card-face-front");
 
                 let cardFaceBack = document.createElement("div");
                 cardFaceBack.setAttribute("class", "card-face card-face-back");
+                cardFaceBack.innerText = "sfhkjsdfjkds";
+
+
 
 
                 let cardImage = document.createElement("img");
@@ -86,15 +88,20 @@ function showCards() {
                 cardName.setAttribute("class", `card-name`);
                 cardName.innerText = newData.results[i].name;
         
+
+
                 
                 cardFaceFront.appendChild(cardImage);
                 cardFaceFront.appendChild(cardName);
+                // cardFaceBack.appendChild();
+                // cardFaceBack.appendChild();
+
+
                 card.appendChild(cardFaceFront);
-                // card.appendChild(cardImage);
-                // card.appendChild(cardName);
+                card.appendChild(cardFaceBack);
+
+
                 cardContainer.appendChild(card);
-
-
                 card.addEventListener("click", (event) => {
                     event.stopPropagation()
 
