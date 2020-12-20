@@ -1,0 +1,19 @@
+html, body {
+    width: 1000px;
+    margin: 0 auto;
+    background-color: #292E31;
+    color: #F0E14A;
+}
+
+
+#title-container {
+    display: block;
+    margin: 10px auto;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    padding-top: 25px;
+    margin: 10px auto;
+}
