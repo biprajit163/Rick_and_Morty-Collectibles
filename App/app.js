@@ -83,8 +83,14 @@ function showCards() {
                 species.innerText = `Species: ${newData.results[i].species}`;
                 let status = document.createElement("p");
                 status.innerText = `Status: ${newData.results[i].status}`;
+                
                 let type = document.createElement("p");
-                type.innerText = `Type: ${newData.results[i].type}`;
+                if(newData.results[i].type === "") {
+                    type.innerText = `Type: unknown`;
+                } else {
+                    type.innerText = `Type: ${newData.results[i].type}`;
+                }
+
                 let location = document.createElement("p");
                 location.innerText = `Location: ${newData.results[i].location["name"]}`;
                 let origin = document.createElement("p");
