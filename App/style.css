@@ -14,7 +14,11 @@ html, body {
     display: flex;
     justify-content: center;
     width: 400px;
+    padding-top: 25px;
     margin: 10px auto;
+}
+.portal {
+    text-align: center;
 }
 
 
