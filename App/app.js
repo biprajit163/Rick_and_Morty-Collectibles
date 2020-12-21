@@ -46,7 +46,7 @@ function showCards() {
         .then(newRes => newRes.json())
         .then(newData => {
             console.log(newData.results);
-
+            // localStorage.setItem(`name`, `${newData.results[0].name}`);
 
             for(let i=0; i < newData.results.length; i++) {
 
@@ -77,6 +77,17 @@ function showCards() {
                 cardName.setAttribute("class", "card-name");
                 cardName.innerText = newData.results[i].name;
         
+
+                cardName.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    // localStorage.setItem("name", `${cardName.innerText}`);
+                    console.log(cardName.innerText);
+                });
+
+
+
+
+
                 let cardInfo = document.createElement("div");
                 cardInfo.setAttribute("class", "card-info");
                 let species = document.createElement("p");
