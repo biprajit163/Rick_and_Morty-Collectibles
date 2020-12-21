@@ -51,6 +51,7 @@ function showCards() {
 
                 let imageURL = newData.results[i].image;
                 let episodes = newData.results[i].episode.length;
+                let characterId = newData.results[i].id;
 
                 let card = document.createElement("div");
                 card.setAttribute("class", "card");
@@ -124,25 +125,37 @@ function showCards() {
                 let collectiblesArr = [];
                 cardName.addEventListener("click", (event) => {
                     event.stopPropagation();
+
                     if(localStorage.getItem("collection")) {
                         collectiblesArr = JSON.parse(localStorage.getItem("collection"));
-
-                        collectiblesArr.push([{
+                        
+                        collectiblesArr.push({
+                            id: characterId,
+                            image: imageURL,
                             name: cardName.innerText,
-                        }])
+                            species: species.innerText,
+                            status: status.innerText,
+                            type: type.innerText,
+                            location: location.innerText,
+                            origin: origin.innerText,
+                            episodes: episodes.innerText
+                        })
+                        
 
                         localStorage.setItem("collection", JSON.stringify(collectiblesArr));
-
-                        // localStorage.setItem("image", `${imageURL}`);
-                        // localStorage.setItem("name", `${cardName.innerText}`);
-                        // localStorage.setItem("species", `${species.innerText}`);
-                        // localStorage.setItem("status", `${status.innerText}`);
-                        // localStorage.setItem("type", `${type.innerText}`);
-                        // localStorage.setItem("location", `${location.innerText}`);
-                        // localStorage.setItem("origin", `${origin.innerText}`);
-                        // localStorage.setItem("episodes", `${episodes}`);
+                        
                     } else {
-                        let collectionObjToString = JSON.stringify([{name: cardName.innerText}]);
+                        let collectionObjToString = JSON.stringify([{
+                            id: characterId,
+                            image: imageURL,
+                            name: cardName.innerText,
+                            species: species.innerText,
+                            status: status.innerText,
+                            type: type.innerText,
+                            location: location.innerText,
+                            origin: origin.innerText,
+                            episodes: episodes.innerText
+                        }]);
                         localStorage.setItem("collection", collectionObjToString);
                     }
                     

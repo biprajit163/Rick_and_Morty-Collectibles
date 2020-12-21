@@ -1,31 +1,35 @@
 console.log("My Collectibles webpage is connected!");
 
 
-// let clickMe = document.querySelector(".click");
-// let cardName = document.querySelector(".card-name");
+let clear = document.querySelector(".clear");
 
 
 console.log(localStorage)
-var collection = JSON.parse(localStorage.collection);
+let collection = JSON.parse(localStorage.collection);
 console.log(collection)
 
+let myCollection = collection.reduce((acc, current) => {
+    let duplicate = acc.find(obj => {
+        return obj.id === current.id; 
+    });
 
-// clickMe.addEventListener("click", (event) => {
-//     event.stopPropagation();
-//     let cardObject = {
-//         image: localStorage.getItem("image"),
-//         name: localStorage.getItem("name"),
-//         species: localStorage.getItem("species"),
-//         status: localStorage.getItem("status"),
-//         type: localStorage.getItem("type"),
-//         location: localStorage.getItem("location"),
-//         origin: localStorage.getItem("origin"),
-//         episodes: Number(localStorage.getItem("episodes"))
-//     };
-// });
+    if(!duplicate) {
+        return acc.concat([current]);
+    } else {
+        return acc;
+    }
+}, []);
+
+console.log(myCollection);
 
 
-localStorage.clear();
+clear.addEventListener("click", () => {
+    localStorage.clear();
+    console.log(localStorage);
+    myCollection = [];
+    console.log(myCollection);
+});
+
 
 
 
