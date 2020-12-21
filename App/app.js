@@ -46,7 +46,6 @@ function showCards() {
         .then(newRes => newRes.json())
         .then(newData => {
             console.log(newData.results);
-            // localStorage.setItem(`name`, `${newData.results[0].name}`);
 
             for(let i=0; i < newData.results.length; i++) {
 
@@ -125,7 +124,6 @@ function showCards() {
                 let collectiblesArr = [];
                 cardName.addEventListener("click", (event) => {
                     event.stopPropagation();
-
                     if(localStorage.getItem("collection")) {
                         collectiblesArr = JSON.parse(localStorage.getItem("collection"));
 
@@ -145,15 +143,11 @@ function showCards() {
                         // localStorage.setItem("episodes", `${episodes}`);
                     } else {
                         let collectionObjToString = JSON.stringify([{name: cardName.innerText}]);
-                        // let collectionObjToJson = JSON.parse(collectionObjToString);
-
                         localStorage.setItem("collection", collectionObjToString);
                     }
                     
-                    if(newData.results[i].name === localStorage.name) {
-                        cardName.style.backgroundColor = "#d7da31";
-                        cardName.style.color = "#000";
-                    }
+                    cardName.style.backgroundColor = "#d7da31";
+                    cardName.style.color = "#000";
 
                     console.log(localStorage);
                 });
