@@ -129,10 +129,9 @@ function showCards() {
                     if(localStorage.getItem("collection")) {
                         collectiblesArr = JSON.parse(localStorage.getItem("collection"));
 
-                        collectiblesArr.push({
-                            name: `${cardName.innerText}`,
-                        })
-
+                        collectiblesArr.push([{
+                            name: cardName.innerText,
+                        }])
 
                         localStorage.setItem("collection", JSON.stringify(collectiblesArr));
 
@@ -145,9 +144,10 @@ function showCards() {
                         // localStorage.setItem("origin", `${origin.innerText}`);
                         // localStorage.setItem("episodes", `${episodes}`);
                     } else {
-                        localStorage.setItem("collection", JSON.stringify([{
-                            name: `${cardName.innerText}`
-                        }]));
+                        let collectionObjToString = JSON.stringify([{name: cardName.innerText}]);
+                        // let collectionObjToJson = JSON.parse(collectionObjToString);
+
+                        localStorage.setItem("collection", collectionObjToString);
                     }
                     
                     if(newData.results[i].name === localStorage.name) {
