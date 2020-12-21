@@ -78,16 +78,6 @@ function showCards() {
                 cardName.innerText = newData.results[i].name;
         
 
-                cardName.addEventListener("click", (event) => {
-                    event.stopPropagation();
-                    // localStorage.setItem("name", `${cardName.innerText}`);
-                    console.log(cardName.innerText);
-                });
-
-
-
-
-
                 let cardInfo = document.createElement("div");
                 cardInfo.setAttribute("class", "card-info");
                 let species = document.createElement("p");
@@ -125,11 +115,25 @@ function showCards() {
 
 
                 cardContainer.appendChild(card);
+
                 card.addEventListener("click", (event) => {
                     event.stopPropagation()
 
                     card.classList.toggle("is-flipped");
                 });
+
+                cardName.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    localStorage.setItem("image", `${imageURL}`);
+                    localStorage.setItem("name", `${cardName.innerText}`);
+                    localStorage.setItem("species", `${species.innerText}`);
+                    localStorage.setItem("status", `${status.innerText}`);
+                    localStorage.setItem("type", `${type.innerText}`);
+                    localStorage.setItem("location", `${location.innerText}`);
+                    localStorage.setItem("origin", `${origin.innerText}`);
+                    localStorage.setItem("episodes", `${episodes}`);
+                });
+
             }
         })
         .catch(err => console.log("Something went wrong...", err));
