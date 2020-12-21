@@ -38,6 +38,7 @@ clickMe.addEventListener("click", (event) => {
     }, []);
 
     console.log(collectibles);
+    console.log(localStorage);
 });
 
 

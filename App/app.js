@@ -122,23 +122,40 @@ function showCards() {
                     card.classList.toggle("is-flipped");
                 });
 
+                let collectiblesArr = [];
                 cardName.addEventListener("click", (event) => {
                     event.stopPropagation();
 
-                    localStorage.setItem("image", `${imageURL}`);
-                    localStorage.setItem("name", `${cardName.innerText}`);
-                    localStorage.setItem("species", `${species.innerText}`);
-                    localStorage.setItem("status", `${status.innerText}`);
-                    localStorage.setItem("type", `${type.innerText}`);
-                    localStorage.setItem("location", `${location.innerText}`);
-                    localStorage.setItem("origin", `${origin.innerText}`);
-                    localStorage.setItem("episodes", `${episodes}`);
+                    if(localStorage.getItem("collection")) {
+                        collectiblesArr = JSON.parse(localStorage.getItem("collection"));
 
+                        collectiblesArr.push({
+                            name: `${cardName.innerText}`,
+                        })
+
+
+                        localStorage.setItem("collection", JSON.stringify(collectiblesArr));
+
+                        // localStorage.setItem("image", `${imageURL}`);
+                        // localStorage.setItem("name", `${cardName.innerText}`);
+                        // localStorage.setItem("species", `${species.innerText}`);
+                        // localStorage.setItem("status", `${status.innerText}`);
+                        // localStorage.setItem("type", `${type.innerText}`);
+                        // localStorage.setItem("location", `${location.innerText}`);
+                        // localStorage.setItem("origin", `${origin.innerText}`);
+                        // localStorage.setItem("episodes", `${episodes}`);
+                    } else {
+                        localStorage.setItem("collection", JSON.stringify([{
+                            name: `${cardName.innerText}`
+                        }]));
+                    }
                     
                     if(newData.results[i].name === localStorage.name) {
                         cardName.style.backgroundColor = "#d7da31";
                         cardName.style.color = "#000";
                     }
+
+                    console.log(localStorage);
                 });
                 
             }
