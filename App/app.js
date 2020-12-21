@@ -124,6 +124,7 @@ function showCards() {
 
                 cardName.addEventListener("click", (event) => {
                     event.stopPropagation();
+
                     localStorage.setItem("image", `${imageURL}`);
                     localStorage.setItem("name", `${cardName.innerText}`);
                     localStorage.setItem("species", `${species.innerText}`);
@@ -132,8 +133,14 @@ function showCards() {
                     localStorage.setItem("location", `${location.innerText}`);
                     localStorage.setItem("origin", `${origin.innerText}`);
                     localStorage.setItem("episodes", `${episodes}`);
-                });
 
+                    
+                    if(newData.results[i].name === localStorage.name) {
+                        cardName.style.backgroundColor = "#d7da31";
+                        cardName.style.color = "#000";
+                    }
+                });
+                
             }
         })
         .catch(err => console.log("Something went wrong...", err));

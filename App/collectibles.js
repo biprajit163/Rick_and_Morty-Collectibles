@@ -1,15 +1,9 @@
 console.log("My Collectibles webpage is connected!");
 
-/* -------------------------------------------------------------------------- 
-- Learn about local storage
-- Click a card
-    - Storage.getItem() = get the card I clicked on
-    - Storage.setItem() = set the card in my collectibles page;
--------------------------------------------------------------------------- */
+
 let clickMe = document.querySelector(".click");
 let cardName = document.querySelector(".card-name");
 
-let collectiblesArray = [];
 let cardObjArr = [];
 
 clickMe.addEventListener("click", (event) => {
@@ -26,12 +20,34 @@ clickMe.addEventListener("click", (event) => {
     };
 
     cardObjArr.push(cardObject);
-    collectiblesArray = [... new Set(cardObjArr)];
-    console.log(collectiblesArray);
+
+    const collectibles = cardObjArr.reduce((accumulator, currentVal) => {
+        // https://dev.to/marinamosti/removing-duplicates-in-an-array-of-objects-in-js-with-sets-3fep
+        // author: Marina Mosti
+        // author: Natalia Tepluhina
+        
+        const duplicate = accumulator.find(obj => {
+            return obj.name === currentVal.name
+        });
+
+        if(!duplicate) {
+            return accumulator.concat([currentVal]);
+        } else {
+            return accumulator;
+        }
+    }, []);
+
+    console.log(collectibles);
 });
 
 
 localStorage.clear();
+
+
+
+
+
+
 
 
 
