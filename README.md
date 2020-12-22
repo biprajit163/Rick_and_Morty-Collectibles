@@ -27,15 +27,27 @@ Here is the deployed verison: https://biprajit163.github.io/Rick_and_Morty-Colle
 - As a user, I want to be able to scroll on the card details so I can see all the character information
 
 #### Stretch Goal
-- As a user, I want to click on the card name after I have searched it up to add it to my collection of cards
-- As a user, I do not want duplicates in my collection
-- As a user, I can click the card name from my collection to remove it from the "My Collectibles" page
+- As a user, I want to click on the card name after I have searched it up to add it to my collection of cards.
+- As a user, I do not want duplicates in my collection.
+- As a user, I can click the card name from my collection to remove it from the "My Collectibles" page.
 - As a user, when I click a name from my colleciton, the specefic card I clicked should get removed and not another card that has the same name but is a different version.
 
 
 ## Major Hurdles
 - When search for a new character all old characters should be cleared from the page.
-    - I overcame this by using a while() loop. When I searched for a new character I looped through the parent element of "card-container" and removed the last child node while a last child node existed
+    - I overcame this by using a while() loop. When I searched for a new character I looped through the parent element of "card-container" and removed the last child node while a last child node existed.
 - Retreive all possible characters and not just the characters available on page one of the API
-    - To solve this I did a nested fetch() and retreived all the pages of the searched character, using a random number generator from 1 to the last available page of that searched character.
-- 
+    - To solve this I did a nested fetch() and retreived all the pages of the searched character using a random number generator from 1 to the last available page of that searched character.
+- local storage
+    - I had to learn how to use local storage first, then I set all the vard variables as an object using JSON.stringify() and I got them back in my collection page using JSON.parse()
+- Remove current card in my collection when I click the card name, and not other cards that have a similar name.
+    - I overcame this by using card Id. I set a data type attribute to each card class and gave it the card Id. So when I click the card I want to remove it would remove that unique card.
+
+
+## Credit
+- Card flip animation: I used Tyler Pots Youtube video and github repo to learn how to do the card flip effect.
+    - Youtube: https://www.youtube.com/watch?v=QGVXmoZWZuw&t=467s&ab_channel=TylerPotts 
+    - GitHub: https://github.com/TylerPottsDev/card-flip
+
+- Remove duplicate cards from my collection: I read this blog by Marina Mosti on how to remove duplicate objects from an array. I was able to use this code to make sure the user can not add duplicate cards to their collection.
+    - link: https://dev.to/marinamosti/removing-duplicates-in-an-array-of-objects-in-js-with-sets-3fep
