@@ -75,6 +75,7 @@ function showCards() {
         
                 let cardName = document.createElement("div");
                 cardName.setAttribute("class", "card-name");
+                cardName.setAttribute("data-character-id", `${newData.results[i].id}`);
                 cardName.innerText = newData.results[i].name;
         
 

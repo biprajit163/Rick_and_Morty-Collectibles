@@ -45,6 +45,7 @@ for(let i=0; i < myCollection.length; i++) {
 
     let cardName = document.createElement("div");
     cardName.setAttribute("class", "card-name");
+    cardName.setAttribute("data-character-id", `${myCollection[i].id}`);
     cardName.innerText = myCollection[i].name;
 
 
@@ -96,11 +97,12 @@ for(let i=0; i < myCollection.length; i++) {
         let counter = 0;
         let index = 0;
 
+
         card.remove();
 
         myCollection.forEach(item => {
-            counter++
-            if(event.target.innerText === item.name) {
+            counter++;
+            if(Number(event.target.dataset.characterId) === item.id) {
                 index = counter - 1;
             }
         })
@@ -113,6 +115,7 @@ for(let i=0; i < myCollection.length; i++) {
         // console.log(`Counter: ${counter}`);
         // console.log(`Index: ${index}`);
         // console.log(`event.target.innerText: ${event.target.innerText}`);
+        // console.log(`event.target.dataset.characterId: ${event.target.dataset.characterId}`);
         // console.log(myCollection);
         // console.log(localStorage);
     })
