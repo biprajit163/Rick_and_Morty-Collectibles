@@ -45,7 +45,7 @@ function showCards() {
         fetch(randPageURL)
         .then(newRes => newRes.json())
         .then(newData => {
-            // console.log(newData.results);
+            console.log(newData.results);
 
             for(let i=0; i < newData.results.length; i++) {
 
@@ -75,6 +75,7 @@ function showCards() {
         
                 let cardName = document.createElement("div");
                 cardName.setAttribute("class", "card-name");
+                cardName.setAttribute("data-character-id", `${newData.results[i].id}`);
                 cardName.innerText = newData.results[i].name;
         
 
