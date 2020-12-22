@@ -17,3 +17,11 @@ html, body {
     padding-top: 25px;
     margin: 10px auto;
 }
+
+
+.clear-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px auto;
+    padding: 10px;
+}

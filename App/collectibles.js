@@ -1,7 +1,7 @@
 console.log("My Collectibles webpage is connected!");
 
 
-let clear = document.querySelector(".clear");
+let clearBtn = document.querySelector(".clear-button");
 let cardContainer = document.querySelector("#card-container")
 
 
@@ -87,7 +87,7 @@ for(let i=0; i < myCollection.length; i++) {
 
 
 
-clear.addEventListener("click", () => {
+clearBtn.addEventListener("click", () => {
     localStorage.clear();
     console.log(localStorage);
     myCollection = [];
