@@ -45,7 +45,7 @@ function showCards() {
         fetch(randPageURL)
         .then(newRes => newRes.json())
         .then(newData => {
-            console.log(newData.results);
+            // console.log(newData.results);
 
             for(let i=0; i < newData.results.length; i++) {
 

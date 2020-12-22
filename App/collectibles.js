@@ -7,7 +7,7 @@ let cardContainer = document.querySelector("#card-container")
 
 console.log(localStorage)
 let collection = JSON.parse(localStorage.collection);
-// console.log(collection)
+console.log(collection)
 
 let myCollection = collection.reduce((acc, current) => {
     let duplicate = acc.find(obj => {
@@ -92,26 +92,29 @@ for(let i=0; i < myCollection.length; i++) {
 
     cardName.addEventListener("click", (event) => {
         event.stopPropagation();
+
+        let counter = 0;
         let index = 0;
 
-        // card.remove();
+        card.remove();
 
         myCollection.forEach(item => {
-            index++
+            counter++
             if(event.target.innerText === item.name) {
-                console.log(index);
-                myCollection.splice(index, 1);
-                console.log(item.name);
+                index = counter - 1;
             }
         })
+
+        myCollection.splice(index, 1);
 
 
         localStorage.setItem("collection", JSON.stringify(myCollection));
 
-
-        console.log(myCollection);
-        // console.log(collection);
-        console.log(localStorage);
+        // console.log(`Counter: ${counter}`);
+        // console.log(`Index: ${index}`);
+        // console.log(`event.target.innerText: ${event.target.innerText}`);
+        // console.log(myCollection);
+        // console.log(localStorage);
     })
 }
 
@@ -137,22 +140,6 @@ clearBtn.addEventListener("click", () => {
 // https://dev.to/marinamosti/removing-duplicates-in-an-array-of-objects-in-js-with-sets-3fep
 // author: Marina Mosti
 // author: Natalia Tepluhina
-
-let cardObjArr = [];
-
-const collectibles = cardObjArr.reduce((accumulator, currentVal) => {
-    const duplicate = accumulator.find(obj => {
-        return obj.name === currentVal.name
-    });
-
-    if(!duplicate) {
-        return accumulator.concat([currentVal]);
-    } else {
-        return accumulator;
-    }
-}, []);
-
-console.log(collectibles);
 
 ---------------------------------------------------------------------------------------------------- */
 
