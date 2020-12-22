@@ -4,3 +4,27 @@
     margin: 25px auto;
     padding: 10px;
 }
+
+
+.page-button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 25px;
+    justify-content: space-between;
+    height: 50px;
+}
+.page-button-container > button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+}
+.page-button {
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 20px 10px;
+    background-color: red;
+    font-family: monospace;
+    box-shadow: 0 5px 10px rgb(173, 156, 156);
+}
