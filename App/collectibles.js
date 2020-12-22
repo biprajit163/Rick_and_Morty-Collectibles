@@ -7,7 +7,7 @@ let cardContainer = document.querySelector("#card-container")
 
 console.log(localStorage)
 let collection = JSON.parse(localStorage.collection);
-console.log(collection)
+// console.log(collection)
 
 let myCollection = collection.reduce((acc, current) => {
     let duplicate = acc.find(obj => {
@@ -21,7 +21,7 @@ let myCollection = collection.reduce((acc, current) => {
     }
 }, []);
 
-console.log(myCollection);
+// console.log(myCollection);
 
 
 
@@ -36,7 +36,7 @@ for(let i=0; i < myCollection.length; i++) {
     let cardBack = document.createElement("div");
     cardBack.setAttribute("class", "card-face card-face-back");
     cardBack.innerText = myCollection[i].episodes;
-    
+
 
     let cardImage = document.createElement("img");
     cardImage.setAttribute("class", "card-image");
@@ -89,6 +89,21 @@ for(let i=0; i < myCollection.length; i++) {
         card.classList.toggle("is-flipped");
     });
 
+
+    cardName.addEventListener("click", (event) => {
+        event.stopPropagation();
+
+        card.remove();
+        myCollection.pop()
+
+
+        localStorage.setItem("collection", JSON.stringify(myCollection));
+
+
+        console.log(myCollection);
+        // console.log(collection);
+        console.log(localStorage);
+    })
 }
 
 
