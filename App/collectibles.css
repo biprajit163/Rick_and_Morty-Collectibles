@@ -13,6 +13,7 @@
     background-color: #4a5d68;
     color: rgb(150, 228, 130);
     font-size: 25px;
+    font-family:'Courier New', Courier, monospace;
     transition: .3s;
     cursor: pointer;
 }
