@@ -1,4 +1,3 @@
-// console.log("app.js is connected!");
 
 const cardContainer = document.querySelector("#card-container");
 const card = document.querySelector(".card");
@@ -29,7 +28,6 @@ function showCards() {
     })
     .then(res => res.json())
     .then(data => {
-        // console.log(data);
 
         let page = Math.ceil(Math.random() * data.info.pages);
         let randPageURL = `https://rickandmortyapi.com/api/character/?name=${characterName}&page=${page}`; 
@@ -45,7 +43,6 @@ function showCards() {
         fetch(randPageURL)
         .then(newRes => newRes.json())
         .then(newData => {
-            // console.log(newData.results);
 
             for(let i=0; i < newData.results.length; i++) {
 
@@ -162,8 +159,6 @@ function showCards() {
                     
                     cardName.style.backgroundColor = "#d7da31";
                     cardName.style.color = "#000";
-
-                    // console.log(localStorage);
                 });
                 
             }
