@@ -73,7 +73,7 @@ function showCards() {
                 cardImage.setAttribute("class", "card-image");
                 cardImage.setAttribute("src", `${imageURL}`);
         
-                let cardName = document.createElement("p");
+                let cardName = document.createElement("div");
                 cardName.setAttribute("class", "card-name");
                 cardName.innerText = newData.results[i].name;
         
