@@ -1,4 +1,4 @@
-console.log("app.js is connected!");
+// console.log("app.js is connected!");
 
 const cardContainer = document.querySelector("#card-container");
 const card = document.querySelector(".card");
@@ -162,7 +162,7 @@ function showCards() {
                     cardName.style.backgroundColor = "#d7da31";
                     cardName.style.color = "#000";
 
-                    console.log(localStorage);
+                    // console.log(localStorage);
                 });
                 
             }

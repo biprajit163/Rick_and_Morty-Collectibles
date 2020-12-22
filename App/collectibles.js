@@ -1,13 +1,13 @@
-console.log("My Collectibles webpage is connected!");
+// console.log("My Collectibles webpage is connected!");
 
 
 let clearBtn = document.querySelector(".clear-button");
 let cardContainer = document.querySelector("#card-container")
 
 
-console.log(localStorage)
+// console.log(localStorage)
 let collection = JSON.parse(localStorage.collection);
-console.log(collection)
+// console.log(collection)
 
 let myCollection = collection.reduce((acc, current) => {
     let duplicate = acc.find(obj => {
@@ -123,9 +123,9 @@ for(let i=0; i < myCollection.length; i++) {
 
 clearBtn.addEventListener("click", () => {
     localStorage.clear();
-    console.log(localStorage);
+    // console.log(localStorage);
     myCollection = [];
-    console.log(myCollection);
+    // console.log(myCollection);
     window.location.reload();
 });
 
