@@ -1,13 +1,11 @@
-// console.log("My Collectibles webpage is connected!");
 
 
 let clearBtn = document.querySelector(".clear-button");
 let cardContainer = document.querySelector("#card-container")
 
 
-// console.log(localStorage)
 let collection = JSON.parse(localStorage.collection);
-// console.log(collection)
+
 
 let myCollection = collection.reduce((acc, current) => {
     let duplicate = acc.find(obj => {
@@ -21,7 +19,7 @@ let myCollection = collection.reduce((acc, current) => {
     }
 }, []);
 
-// console.log(myCollection);
+
 
 
 
@@ -111,13 +109,6 @@ for(let i=0; i < myCollection.length; i++) {
 
 
         localStorage.setItem("collection", JSON.stringify(myCollection));
-
-        // console.log(`Counter: ${counter}`);
-        // console.log(`Index: ${index}`);
-        // console.log(`event.target.innerText: ${event.target.innerText}`);
-        // console.log(`event.target.dataset.characterId: ${event.target.dataset.characterId}`);
-        // console.log(myCollection);
-        // console.log(localStorage);
     })
 }
 
@@ -126,25 +117,13 @@ for(let i=0; i < myCollection.length; i++) {
 
 clearBtn.addEventListener("click", () => {
     localStorage.clear();
-    // console.log(localStorage);
     myCollection = [];
-    // console.log(myCollection);
     window.location.reload();
 });
 
 
 
 
-
-
-
-/* --------------------------------------------------------------------------------------------------
-
-// https://dev.to/marinamosti/removing-duplicates-in-an-array-of-objects-in-js-with-sets-3fep
-// author: Marina Mosti
-// author: Natalia Tepluhina
-
----------------------------------------------------------------------------------------------------- */
 
 
 
