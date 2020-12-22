@@ -40,10 +40,11 @@ html, body {
     height: 40px;
     padding: 0 6px;
     font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
     border-radius: 100px;
     box-shadow: none;
-
+    outline: none;
 }
 .searchbar-button {
     color: white;
