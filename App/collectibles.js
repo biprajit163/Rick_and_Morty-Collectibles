@@ -5,7 +5,7 @@ let clearBtn = document.querySelector(".clear-button");
 let cardContainer = document.querySelector("#card-container")
 
 
-console.log(localStorage)
+// console.log(localStorage)
 let collection = JSON.parse(localStorage.collection);
 // console.log(collection)
 
@@ -21,7 +21,7 @@ let myCollection = collection.reduce((acc, current) => {
     }
 }, []);
 
-console.log(myCollection);
+// console.log(myCollection);
 
 
 
