@@ -92,9 +92,18 @@ for(let i=0; i < myCollection.length; i++) {
 
     cardName.addEventListener("click", (event) => {
         event.stopPropagation();
+        let index = 0;
 
-        card.remove();
-        myCollection.pop()
+        // card.remove();
+
+        myCollection.forEach(item => {
+            index++
+            if(event.target.innerText === item.name) {
+                console.log(index);
+                myCollection.splice(index, 1);
+                console.log(item.name);
+            }
+        })
 
 
         localStorage.setItem("collection", JSON.stringify(myCollection));
