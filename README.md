@@ -44,6 +44,9 @@ Here is the deployed verison: https://biprajit163.github.io/Rick_and_Morty-Colle
     - I overcame this by using card Id. I set a data type attribute to each card class and gave it the card Id. So when I click the card I want to remove it would remove that unique card.
 
 
+## Installation
+To install this project fork this repository and use git clone to get started. 
+
 ## Credit
 - Card flip animation: I used Tyler Pots Youtube video and github repo to learn how to do the card flip effect.
     - Youtube: https://www.youtube.com/watch?v=QGVXmoZWZuw&t=467s&ab_channel=TylerPotts 
