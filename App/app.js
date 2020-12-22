@@ -138,7 +138,7 @@ function showCards() {
                             type: type.innerText,
                             location: location.innerText,
                             origin: origin.innerText,
-                            episodes: episodes.innerText
+                            episodes: episodes
                         })
                         
 
@@ -154,7 +154,7 @@ function showCards() {
                             type: type.innerText,
                             location: location.innerText,
                             origin: origin.innerText,
-                            episodes: episodes.innerText
+                            episodes: episodes
                         }]);
                         localStorage.setItem("collection", collectionObjToString);
                     }

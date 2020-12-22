@@ -36,7 +36,7 @@ for(let i=0; i < myCollection.length; i++) {
     let cardBack = document.createElement("div");
     cardBack.setAttribute("class", "card-face card-face-back");
     cardBack.innerText = myCollection[i].episodes;
-
+    
 
     let cardImage = document.createElement("img");
     cardImage.setAttribute("class", "card-image");
@@ -79,8 +79,15 @@ for(let i=0; i < myCollection.length; i++) {
     cardFront.appendChild(cardInfo);
 
     card.appendChild(cardFront);
+    card.appendChild(cardBack);
 
     cardContainer.appendChild(card);
+
+    card.addEventListener("click", (event) => {
+        event.stopPropagation()
+
+        card.classList.toggle("is-flipped");
+    });
 
 }
 
