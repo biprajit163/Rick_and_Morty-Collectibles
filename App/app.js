@@ -1,4 +1,4 @@
-console.log("app.js is connected!");
+// console.log("app.js is connected!");
 
 const cardContainer = document.querySelector("#card-container");
 const card = document.querySelector(".card");
@@ -45,13 +45,13 @@ function showCards() {
         fetch(randPageURL)
         .then(newRes => newRes.json())
         .then(newData => {
-            console.log(newData.results);
-
+            // console.log(newData.results);
 
             for(let i=0; i < newData.results.length; i++) {
 
                 let imageURL = newData.results[i].image;
                 let episodes = newData.results[i].episode.length;
+                let characterId = newData.results[i].id;
 
                 let card = document.createElement("div");
                 card.setAttribute("class", "card");
@@ -73,10 +73,11 @@ function showCards() {
                 cardImage.setAttribute("class", "card-image");
                 cardImage.setAttribute("src", `${imageURL}`);
         
-                let cardName = document.createElement("p");
+                let cardName = document.createElement("div");
                 cardName.setAttribute("class", "card-name");
                 cardName.innerText = newData.results[i].name;
         
+
                 let cardInfo = document.createElement("div");
                 cardInfo.setAttribute("class", "card-info");
                 let species = document.createElement("p");
@@ -114,11 +115,56 @@ function showCards() {
 
 
                 cardContainer.appendChild(card);
+
                 card.addEventListener("click", (event) => {
                     event.stopPropagation()
 
                     card.classList.toggle("is-flipped");
                 });
+
+                let collectiblesArr = [];
+                cardName.addEventListener("click", (event) => {
+                    event.stopPropagation();
+
+                    if(localStorage.getItem("collection")) {
+                        collectiblesArr = JSON.parse(localStorage.getItem("collection"));
+                        
+                        collectiblesArr.push({
+                            id: characterId,
+                            image: imageURL,
+                            name: cardName.innerText,
+                            species: species.innerText,
+                            status: status.innerText,
+                            type: type.innerText,
+                            location: location.innerText,
+                            origin: origin.innerText,
+                            episodes: episodes
+                        })
+                        
+
+                        localStorage.setItem("collection", JSON.stringify(collectiblesArr));
+                        
+                    } else {
+                        let collectionObjToString = JSON.stringify([{
+                            id: characterId,
+                            image: imageURL,
+                            name: cardName.innerText,
+                            species: species.innerText,
+                            status: status.innerText,
+                            type: type.innerText,
+                            location: location.innerText,
+                            origin: origin.innerText,
+                            episodes: episodes
+                        }]);
+                        localStorage.setItem("collection", collectionObjToString);
+                    }
+                    
+                    cardName.style.backgroundColor = "#d7da31";
+                    cardName.style.color = "#000";
+
+                    // console.log(localStorage);
+                });
+                
             }
         })
         .catch(err => console.log("Something went wrong...", err));

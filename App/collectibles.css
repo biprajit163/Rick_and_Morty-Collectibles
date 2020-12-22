@@ -1,0 +1,64 @@
+.clear-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    padding: 10px;
+}
+.clear-button {
+    border-radius: 100px;
+    height: 50px;
+    width: 300px;
+    outline: none;
+    background-color: #4a5d68;
+    color: rgb(150, 228, 130);
+    font-size: 25px;
+    font-family:'Courier New', Courier, monospace;
+    transition: .3s;
+    cursor: pointer;
+}
+.clear-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 15px rgba(173, 156, 156, 0.25);
+}
+.clear-button:active {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 0px;
+}
+
+
+
+
+
+
+.page-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    justify-content: space-between;
+    height: 50px;
+}
+.page-button-container > button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+}
+.page-button {
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    border-bottom: 4px solid lighten(black, 70%);
+    padding: 20px 10px;
+    margin: 25px auto;
+    background-color: white;
+    font-family: monospace;
+    cursor: pointer;
+}
+.page-button:hover {
+    background-color: lightgray;
+}
+.page-button:active {
+    background-color: white;
+}
